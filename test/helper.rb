@@ -15,9 +15,8 @@ require 'mocha'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'exception_helper'
 
-Lumber.init(:root => File.dirname(__FILE__) + '/../', :env => 'test')
+require 'exception_helper'
 
 class Test::Unit::TestCase
 end

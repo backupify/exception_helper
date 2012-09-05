@@ -92,10 +92,21 @@ class RetryTest < Test::Unit::TestCase
 
       wrap_with_retry :mymethod, :exceptions => [TestException1, TestException2], :retry_count => 9, :retry_sleep => 8
     end
-    
+
     WithRetry.any_instance.expects(:retry_on_failure).with(TestException1, TestException2, {:retry_count => 9, :retry_sleep => 8})
 
     WithRetry.new.mymethod
   end
 
+  should "not override logger on include" do
+    class WithLogger
+      def self.logger
+        "Doesn't really do much"
+      end
+
+      include ExceptionHelper::Retry
+    end
+
+    assert_equal "Doesn't really do much", WithLogger.logger
+  end
 end

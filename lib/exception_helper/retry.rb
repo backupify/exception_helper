@@ -1,11 +1,19 @@
 require 'active_support/concern'
-require 'backupify/logger_support'
 
 module ExceptionHelper
   module Retry
     extend ActiveSupport::Concern
 
-    include Backupify::LoggerSupport
+    included do
+      unless defined?(logger)
+        require 'log4r'
+
+        #always return the null logger
+        def self.logger
+          Log4r::Logger.root
+        end
+      end
+    end
 
     def retry_on_failure(*exception_list, &block)
       self.class.retry_on_failure(*exception_list, &block)
