@@ -2,6 +2,8 @@
 .idea/
 atlassian*
 
+log/rake_test_loader*
+
 # rcov generated
 coverage
 coverage.data
