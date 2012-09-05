@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "config/log4r.yml",
+    "exception_helper.gemspec",
     "lib/exception_helper.rb",
     "lib/exception_helper/retry.rb",
     "log/.gitkeep",
