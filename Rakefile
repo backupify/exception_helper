@@ -1,12 +1,10 @@
-# encoding: utf-8
-require 'bundler/gem_tasks'
-require 'rake'
-require 'rake/testtask'
+require "bundler/gem_tasks"
+require "rake"
+require "rake/testtask"
 
 Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
+  test.libs.concat(%w[test])
+  test.pattern = "test/**/*_test.rb"
 end
 
 task :default => :test

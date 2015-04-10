@@ -21,9 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "activesupport", ">= 2.3.5"
 
   gem.add_development_dependency "rake"
-  gem.add_development_dependency "shoulda"
   gem.add_development_dependency "bundler"
-  gem.add_development_dependency "mocha"
   # used for null logger
   gem.add_development_dependency "log4r"
 end

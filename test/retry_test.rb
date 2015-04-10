@@ -1,6 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + '/helper.rb')
+require "test_helper"
 
-class RetryTest < Test::Unit::TestCase
+class ExceptionHelper::RetryTest < ExceptionHelper::TestCase
+  Subject = self
 
   include ExceptionHelper::Retry
 
@@ -19,7 +20,7 @@ class RetryTest < Test::Unit::TestCase
 
   should "retry for specified exceptions" do
     expects(:puts).with("hello").at_least(2)
-    assert_raise(TestException1) do
+    assert_raises(TestException1) do
       retry_on_failure(TestException1) do
         puts "hello"
         raise TestException1.new
@@ -29,7 +30,7 @@ class RetryTest < Test::Unit::TestCase
 
   should "retry by given count for specified exceptions" do
     expects(:puts).with("hello").times(6)
-    assert_raise(TestException1) do
+    assert_raises(TestException1) do
       retry_on_failure(TestException1, TestException2, :retry_count => 5) do
         puts "hello"
         raise TestException1.new
@@ -39,7 +40,7 @@ class RetryTest < Test::Unit::TestCase
 
   should "not retry for unspecified exceptions" do
     expects(:puts).with("hello").once
-    assert_raise(TestException1) do
+    assert_raises(TestException1) do
       retry_on_failure(TestException2) do
         puts "hello"
         raise TestException1.new
@@ -48,8 +49,8 @@ class RetryTest < Test::Unit::TestCase
   end
 
   should "sleep if retry_sleep given" do
-    RetryTest.expects(:sleep).with(1)
-    assert_raise(TestException1) do
+    Subject.expects(:sleep).with(1)
+    assert_raises(TestException1) do
       retry_on_failure(TestException1, :retry_count => 1, :retry_sleep => 1) do
         raise TestException1.new
       end
@@ -57,8 +58,8 @@ class RetryTest < Test::Unit::TestCase
   end
 
   should "not sleep if retry_sleep not given" do
-    RetryTest.expects(:sleep).never
-    assert_raise(TestException1) do
+    Subject.expects(:sleep).never
+    assert_raises(TestException1) do
       retry_on_failure(TestException1, :retry_count => 1) do
         raise TestException1.new
       end
