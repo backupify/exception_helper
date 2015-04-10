@@ -1,4 +1,10 @@
 require "rubygems"
+
+if ENV["CI"]
+  require "coveralls"
+  Coveralls.wear!
+end
+
 require "bundler"
 
 begin
