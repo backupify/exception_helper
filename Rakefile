@@ -1,12 +1,18 @@
-# encoding: utf-8
-require 'bundler/gem_tasks'
+require "bundler/gem_tasks"
 require 'rake'
 require 'rake/testtask'
 
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
+Rake::TestTask.new do |t|
+  t.pattern = 'test/**/*_test.rb'
+  t.libs.push 'test'
 end
 
 task :default => :test
+
+task :console do
+  Bundler.require
+  require "exception_helper"
+  ARGV.clear
+  require "irb"
+  IRB.start
+end

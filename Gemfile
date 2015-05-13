@@ -1,13 +1,16 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'activesupport', '>= 2.3.5'
+# Specify your gem's dependencies in storage_strategy.gemspec
+gemspec
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
-group :development do
-  gem 'rake'
-  gem 'shoulda'
-  gem 'bundler'
-  gem 'mocha'
-  gem 'log4r' #used for null logger
+group :development, :test do
+  gem "pry"
+  gem "awesome_print"
+end
+
+group :test do
+  gem "mocha", require: false
+  # for code coverage during travis-ci test runs
+  gem 'coveralls', require: false
+  gem 'rubymine_minitest_spec', git: 'https://github.com/backupify/rubymine_minitest_spec.git'
 end
