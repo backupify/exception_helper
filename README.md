@@ -1,9 +1,12 @@
-= exception_helper
+# ExceptionHelper
+[![Build Status](https://travis-ci.org/backupify/exception_helper.svg)](https://travis-ci.org/backupify/exception_helper)
+[![Coverage Status](https://coveralls.io/repos/backupify/exception_helper/badge.svg)](https://coveralls.io/r/backupify/exception_helper)
+[![Code Climate](https://codeclimate.com/github/backupify/exception_helper/badges/gpa.svg)](https://codeclimate.com/github/backupify/exception_helper)
 
-Description goes here.
+Helpers for handling exceptions!
 
-== Contributing to exception_helper
- 
+## Contributing to exception_helper
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
@@ -12,8 +15,6 @@ Description goes here.
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
-Copyright (c) 2012 Jason Haruska. See LICENSE.txt for
-further details.
-
+Copyright (c) 2015 Datto Inc. See LICENSE.txt for further details.
