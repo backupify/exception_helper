@@ -12,5 +12,7 @@ group :test do
   gem "mocha", require: false
   # for code coverage during travis-ci test runs
   gem 'coveralls', require: false
+  gem "guard"
+  gem "guard-minitest"
   gem 'rubymine_minitest_spec', git: 'https://github.com/backupify/rubymine_minitest_spec.git'
 end
